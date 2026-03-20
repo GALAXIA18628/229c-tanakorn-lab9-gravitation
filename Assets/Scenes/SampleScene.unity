@@ -195,7 +195,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100963816}
   serializedVersion: 5
-  m_Mass: 500
+  m_Mass: 1100
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -226,6 +226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e10501311abd53409a13a59228971c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gravitation
+  planet: 0
+  orbitSpeed: 8000
 --- !u!1001 &285449240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -302,7 +304,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285449241}
   serializedVersion: 5
-  m_Mass: 20000
+  m_Mass: 10000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -333,6 +335,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e10501311abd53409a13a59228971c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gravitation
+  planet: 1
+  orbitSpeed: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,7 +672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4387678931267766, guid: 1818e1a170ef94c3aacee2ba50057521, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4387678931267766, guid: 1818e1a170ef94c3aacee2ba50057521, type: 3}
       propertyPath: m_LocalRotation.w
@@ -722,7 +726,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359874504}
   serializedVersion: 5
-  m_Mass: 50
+  m_Mass: 60
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -753,6 +757,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e10501311abd53409a13a59228971c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gravitation
+  planet: 0
+  orbitSpeed: 7000
 --- !u!1001 &1510868982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -767,7 +773,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4620931210112870, guid: ab152f61198d54532ae39108e616ff59, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4620931210112870, guid: ab152f61198d54532ae39108e616ff59, type: 3}
       propertyPath: m_LocalPosition.y
@@ -775,11 +781,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4620931210112870, guid: ab152f61198d54532ae39108e616ff59, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4620931210112870, guid: ab152f61198d54532ae39108e616ff59, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4620931210112870, guid: ab152f61198d54532ae39108e616ff59, type: 3}
       propertyPath: m_LocalRotation.x
@@ -787,7 +793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4620931210112870, guid: ab152f61198d54532ae39108e616ff59, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4620931210112870, guid: ab152f61198d54532ae39108e616ff59, type: 3}
       propertyPath: m_LocalRotation.z
@@ -799,7 +805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4620931210112870, guid: ab152f61198d54532ae39108e616ff59, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 4620931210112870, guid: ab152f61198d54532ae39108e616ff59, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -829,7 +835,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510868983}
   serializedVersion: 5
-  m_Mass: 10
+  m_Mass: 40
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -860,6 +866,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e10501311abd53409a13a59228971c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gravitation
+  planet: 0
+  orbitSpeed: 6000
 --- !u!1001 &1524218166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -882,7 +890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4693579709242440, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4693579709242440, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
       propertyPath: m_LocalRotation.w
@@ -936,7 +944,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524218167}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 12
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -967,6 +975,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e10501311abd53409a13a59228971c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gravitation
+  planet: 0
+  orbitSpeed: 2500
 --- !u!1001 &1862736714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -989,7 +999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4024914263291546, guid: 835acc1a9ebe24c0fa3854c99346f9cd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4024914263291546, guid: 835acc1a9ebe24c0fa3854c99346f9cd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1043,7 +1053,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862736715}
   serializedVersion: 5
-  m_Mass: 1000
+  m_Mass: 10
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1074,6 +1084,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e10501311abd53409a13a59228971c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gravitation
+  planet: 0
+  orbitSpeed: 1000
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

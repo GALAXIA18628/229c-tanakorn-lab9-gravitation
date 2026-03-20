@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class Gravitation : MonoBehaviour
 {
@@ -9,34 +10,39 @@ public class Gravitation : MonoBehaviour
     // List of attractable objects
     public static List<Gravitation> otherObjectList;
 
+    //set speed for orbiting
+    [SerializeField] bool planet = false; //if not a planet -> orbit
+    [SerializeField] int orbitSpeed = 1000;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         if (otherObjectList == null) {otherObjectList = new List<Gravitation>();}
         otherObjectList.Add(this);
+        if (!planet) {rb.AddForce(Vector3.left * orbitSpeed);}
     }
     private void FixedUpdate()
     {
         foreach (Gravitation obj in otherObjectList)
         {
-            // ป้องกันไม่ให้มีแรงดึงดูดตัวเอง
+            // ๏ฟฝ๏ฟฝอง๏ฟฝัน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรง๏ฟฝึง๏ฟฝูด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง
             if (obj != this) {AttractForce(obj);}
         }
     }
     void AttractForce(Gravitation other)
     {
         Rigidbody otherRb = other.rb;
-        // หาทิศทางระหว่างวัตถุ
+        // ๏ฟฝาท๏ฟฝศทาง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาง๏ฟฝัต๏ฟฝ๏ฟฝ
         Vector3 direction = rb.position - otherRb.position;
-        // ระยะห่างระหว่างวัตถุ
+        // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาง๏ฟฝัต๏ฟฝ๏ฟฝ
         float distance = direction.magnitude;
-        // ถ้าวัตถุอยู่ตำแหน่งเดียวกัน ไม่ให้ทำอะไร
+        // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวกัน ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
         if (distance == 0f) { return;}
-        // ใช้สูตรหาแรงดึงดูด F = G*((m1*m2)/r^2)
+        // ๏ฟฝ๏ฟฝ๏ฟฝูต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรง๏ฟฝึง๏ฟฝูด F = G*((m1*m2)/r^2)
         float forceMagnitude = G * ((rb.mass * otherRb.mass) / Mathf.Pow(distance, 2));
-        // รวมทิศทาง เข้ากับแรงดึงดูดที่ได้
+        // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝศทาง ๏ฟฝ๏ฟฝากับ๏ฟฝรง๏ฟฝึง๏ฟฝูด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
         Vector3 gravityForce = forceMagnitude * direction.normalized;
-        // ใส่แรงที่ได้ให้กับวัตถุอื่น
+        // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝับ๏ฟฝัต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
         otherRb.AddForce(gravityForce);
     }
 
